@@ -1,4 +1,5 @@
 defmodule KV.Bucket do
+  @moduledoc false
   use Agent
 
   def start_link(_options) do
@@ -10,10 +11,7 @@ defmodule KV.Bucket do
   end
 
   def put(bucket, key, value) do
-    Agent.update(
-      bucket,
-      fn(state) -> Map.put(state, key, value) end
-    )
+    Agent.update(bucket, fn state -> Map.put(state, key, value) end)
   end
 
   @doc """

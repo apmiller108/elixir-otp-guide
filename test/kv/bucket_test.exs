@@ -3,7 +3,7 @@ defmodule KV.BucketTest do
 
   # Setup callback runs before the test in the same process
   setup do
-    {:ok, bucket} = KV.Bucket.start_link([])
+    bucket = start_supervised!(KV.Bucket)
     %{bucket: bucket}
   end
 
